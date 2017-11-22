@@ -1,0 +1,104 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://images/red_circle.png" type="Texture" id=1]
+[ext_resource path="res://images/blue_circle.png" type="Texture" id=2]
+[ext_resource path="res://scripts/player.gd" type="Script" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 25.0
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 25.0
+
+[node name="root" type="Node2D"]
+
+[node name="red_circle" type="RigidBody2D" parent="."]
+
+transform/pos = Vector2( 183.264, 61.0879 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 1.08072, -0.540359 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+
+[node name="t_red_circle" type="Sprite" parent="red_circle"]
+
+transform/pos = Vector2( 1.08072, -0.540359 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="red_circle"]
+
+transform/pos = Vector2( 1.08072, -0.540359 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="blue_circle 2" type="StaticBody2D" parent="."]
+
+transform/pos = Vector2( 183.805, 172.83 )
+input/pickable = false
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="t_blue_circle" type="Sprite" parent="blue_circle 2"]
+
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="blue_circle 2"]
+
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+
+transform/pos = Vector2( 202.15, 114.674 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -3.83885, 1.74026 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 3 )
+
+[node name="t_red_circle1" type="Sprite" parent="KinematicBody2D"]
+
+transform/pos = Vector2( -4.57393, 2.47536 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D1" type="CollisionShape2D" parent="KinematicBody2D"]
+
+transform/pos = Vector2( -3.83885, 1.74026 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+
